@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+
+# Build output
+dist/
+build/
+
+# Python cache/test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Playwright output
+playwright-report/
+test-results/
+
+# Local runtime data
+*.sqlite3
+*.db
+.env
+.env.*
+
+# Generated screenshots and local design renders
+frontend-*.png
+docs/design/*.png
+
+# Logs and OS files
+*.log
+vite.out.log
+vite.err.log
+.DS_Store
+Thumbs.db

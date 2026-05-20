@@ -1,0 +1,431 @@
+{
+  "id": "red-sea-shipping-risk",
+  "title": "Red Sea Shipping Risk",
+  "summary": "A curated oil-market case study showing how Red Sea disruption risk can support Brent and WTI through rerouting, freight pressure, and geopolitical risk premia.",
+  "period": {
+    "start": "2024-01-08",
+    "end": "2024-01-19",
+    "label": "January 2024 disruption window"
+  },
+  "primaryBenchmark": "brent",
+  "priceMove": {
+    "brent": {
+      "startPrice": 76.1,
+      "endPrice": 79.3,
+      "percentChange": 4.2,
+      "unit": "USD/bbl"
+    },
+    "wti": {
+      "startPrice": 70.8,
+      "endPrice": 73.3,
+      "percentChange": 3.5,
+      "unit": "USD/bbl"
+    }
+  },
+  "mapFocus": {
+    "center": {
+      "longitude": 42.6,
+      "latitude": 16.1
+    },
+    "zoom": 3.4
+  },
+  "events": [
+    {
+      "id": "evt-bab-el-mandeb-risk",
+      "title": "Bab el-Mandeb transit risk rises",
+      "description": "Commercial vessels face higher security risk near the Bab el-Mandeb chokepoint, increasing concern about crude and product flows between Asia, Europe, and the Atlantic basin.",
+      "locationName": "Bab el-Mandeb Strait",
+      "coordinates": {
+        "longitude": 43.33,
+        "latitude": 12.58
+      },
+      "impactDirection": "bullish",
+      "impactType": "shipping",
+      "severity": 0.88,
+      "confidence": 0.82,
+      "timeHorizon": "short",
+      "affectedBenchmarks": ["brent", "wti"],
+      "evidenceIds": ["ev-red-sea-rerouting", "ev-freight-risk"]
+    },
+    {
+      "id": "evt-suez-route-delay",
+      "title": "Suez-linked route delays extend voyage times",
+      "description": "Rerouting around the Cape of Good Hope increases journey length and reduces effective tanker availability.",
+      "locationName": "Suez Canal",
+      "coordinates": {
+        "longitude": 32.55,
+        "latitude": 30.04
+      },
+      "impactDirection": "bullish",
+      "impactType": "shipping",
+      "severity": 0.72,
+      "confidence": 0.76,
+      "timeHorizon": "short",
+      "affectedBenchmarks": ["brent"],
+      "evidenceIds": ["ev-red-sea-rerouting"]
+    },
+    {
+      "id": "evt-us-dollar-pressure",
+      "title": "Firm U.S. dollar offsets some oil support",
+      "description": "A stronger dollar can weigh on globally traded oil because it raises the local-currency cost for non-dollar buyers.",
+      "locationName": "United States macro signal",
+      "coordinates": {
+        "longitude": -77.04,
+        "latitude": 38.9
+      },
+      "impactDirection": "bearish",
+      "impactType": "macro",
+      "severity": 0.45,
+      "confidence": 0.7,
+      "timeHorizon": "short",
+      "affectedBenchmarks": ["brent", "wti"],
+      "evidenceIds": ["ev-dollar-counter-signal"]
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-red-sea-suez",
+      "title": "Gulf crude via Red Sea / Suez",
+      "description": "Baseline Gulf crude flow toward Europe through Hormuz, Bab el-Mandeb, the Red Sea, Suez, and the Mediterranean.",
+      "commodity": "crude_oil",
+      "routeKind": "security_risk",
+      "origin": {
+        "id": "origin-gulf-crude",
+        "title": "Saudi / Gulf crude export complex",
+        "role": "origin",
+        "coordinates": {
+          "longitude": 50.1,
+          "latitude": 26.6
+        }
+      },
+      "destination": {
+        "id": "dest-northwest-europe",
+        "title": "Northwest Europe refining hub",
+        "role": "destination",
+        "coordinates": {
+          "longitude": 3.8,
+          "latitude": 52.0
+        }
+      },
+      "coordinates": [
+        {
+          "longitude": 50.1,
+          "latitude": 26.6
+        },
+        {
+          "longitude": 56.5,
+          "latitude": 26.3
+        },
+        {
+          "longitude": 60.2,
+          "latitude": 22.2
+        },
+        {
+          "longitude": 58.4,
+          "latitude": 17.0
+        },
+        {
+          "longitude": 51.8,
+          "latitude": 13.0
+        },
+        {
+          "longitude": 43.33,
+          "latitude": 12.58
+        },
+        {
+          "longitude": 39.1,
+          "latitude": 20.0
+        },
+        {
+          "longitude": 34.8,
+          "latitude": 27.5
+        },
+        {
+          "longitude": 32.55,
+          "latitude": 30.04
+        },
+        {
+          "longitude": 28.5,
+          "latitude": 33.0
+        },
+        {
+          "longitude": 20.0,
+          "latitude": 35.6
+        },
+        {
+          "longitude": 10.4,
+          "latitude": 37.0
+        },
+        {
+          "longitude": 1.0,
+          "latitude": 37.0
+        },
+        {
+          "longitude": -5.3,
+          "latitude": 36.1
+        },
+        {
+          "longitude": -9.7,
+          "latitude": 43.0
+        },
+        {
+          "longitude": -5.5,
+          "latitude": 49.5
+        },
+        {
+          "longitude": 3.8,
+          "latitude": 52.0
+        }
+      ],
+      "priceMechanisms": ["security_premium", "insurance_risk", "freight_cost"],
+      "impactDirection": "bullish",
+      "impactType": "shipping",
+      "severity": 0.82,
+      "confidence": 0.78,
+      "evidenceIds": ["ev-red-sea-rerouting"]
+    },
+    {
+      "id": "route-cape-reroute",
+      "title": "Cape of Good Hope reroute",
+      "description": "Longer maritime path used when Red Sea risk makes normal transit less attractive, increasing voyage duration and freight pressure.",
+      "commodity": "crude_oil",
+      "routeKind": "reroute",
+      "origin": {
+        "id": "origin-gulf-crude",
+        "title": "Saudi / Gulf crude export complex",
+        "role": "origin",
+        "coordinates": {
+          "longitude": 50.1,
+          "latitude": 26.6
+        }
+      },
+      "destination": {
+        "id": "dest-northwest-europe",
+        "title": "Northwest Europe refining hub",
+        "role": "destination",
+        "coordinates": {
+          "longitude": 3.8,
+          "latitude": 52.0
+        }
+      },
+      "coordinates": [
+        { "longitude": 50.1, "latitude": 26.6 },
+        { "longitude": 56.5, "latitude": 26.3 },
+        { "longitude": 61.0, "latitude": 20.0 },
+        { "longitude": 63.0, "latitude": 12.0 },
+        { "longitude": 61.0, "latitude": 2.0 },
+        { "longitude": 57.0, "latitude": -9.0 },
+        { "longitude": 51.0, "latitude": -20.0 },
+        { "longitude": 43.5, "latitude": -29.0 },
+        { "longitude": 31.0, "latitude": -36.0 },
+        { "longitude": 18.4, "latitude": -34.4 },
+        { "longitude": 8.0, "latitude": -28.0 },
+        { "longitude": -2.5, "latitude": -13.0 },
+        { "longitude": -12.0, "latitude": 5.0 },
+        { "longitude": -16.0, "latitude": 20.0 },
+        { "longitude": -12.0, "latitude": 31.5 },
+        { "longitude": -5.3, "latitude": 36.1 },
+        { "longitude": -9.7, "latitude": 43.0 },
+        { "longitude": -5.5, "latitude": 49.5 },
+        { "longitude": 3.8, "latitude": 52.0 }
+      ],
+      "priceMechanisms": ["freight_cost", "supply_availability"],
+      "impactDirection": "mixed",
+      "impactType": "shipping",
+      "severity": 0.74,
+      "confidence": 0.74,
+      "evidenceIds": ["ev-red-sea-rerouting"]
+    },
+    {
+      "id": "route-us-gulf-europe",
+      "title": "U.S. Gulf crude to Europe",
+      "description": "Atlantic crude export flow from the U.S. Gulf Coast into Northwest Europe, relevant as alternate supply and Brent-linked market context.",
+      "commodity": "crude_oil",
+      "routeKind": "alternate_supply",
+      "origin": {
+        "id": "origin-us-gulf-crude",
+        "title": "U.S. Gulf Coast export terminals",
+        "role": "origin",
+        "coordinates": {
+          "longitude": -95.0,
+          "latitude": 28.4
+        }
+      },
+      "destination": {
+        "id": "dest-northwest-europe",
+        "title": "Northwest Europe refining hub",
+        "role": "destination",
+        "coordinates": {
+          "longitude": 3.8,
+          "latitude": 52.0
+        }
+      },
+      "coordinates": [
+        { "longitude": -95.0, "latitude": 28.4 },
+        { "longitude": -89.0, "latitude": 26.5 },
+        { "longitude": -82.0, "latitude": 24.5 },
+        { "longitude": -73.0, "latitude": 31.0 },
+        { "longitude": -58.0, "latitude": 38.0 },
+        { "longitude": -40.0, "latitude": 44.0 },
+        { "longitude": -20.0, "latitude": 48.0 },
+        { "longitude": -8.0, "latitude": 50.0 },
+        { "longitude": 3.8, "latitude": 52.0 }
+      ],
+      "priceMechanisms": ["supply_substitution", "supply_availability"],
+      "impactDirection": "bullish",
+      "impactType": "supply",
+      "severity": 0.58,
+      "confidence": 0.76,
+      "evidenceIds": ["ev-us-crude-europe-flow"]
+    }
+  ],
+  "regions": [
+    {
+      "id": "region-red-sea-risk-zone",
+      "title": "Red Sea risk zone",
+      "description": "Concentrated maritime risk area affecting shipping confidence and route planning.",
+      "center": {
+        "longitude": 40.8,
+        "latitude": 17.2
+      },
+      "radiusKm": 850,
+      "impactDirection": "bullish",
+      "impactType": "geopolitical",
+      "severity": 0.8,
+      "confidence": 0.76,
+      "evidenceIds": ["ev-freight-risk"]
+    }
+  ],
+  "indicators": [
+    {
+      "id": "ind-freight-risk-premium",
+      "title": "Freight and insurance risk premium",
+      "description": "Higher perceived risk can lift shipping costs and support crude risk premia even before physical supply is lost.",
+      "impactDirection": "bullish",
+      "impactType": "shipping",
+      "severity": 0.68,
+      "confidence": 0.73,
+      "evidenceIds": ["ev-freight-risk"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ev-red-sea-rerouting",
+      "sourceId": "src-curated-shipping-brief",
+      "claim": "Some shipping operators reroute vessels away from the Red Sea during elevated security risk.",
+      "excerpt": "Rerouting around southern Africa increases distance and can tighten effective tanker availability.",
+      "relevance": 0.92,
+      "supports": [
+        "evt-bab-el-mandeb-risk",
+        "evt-suez-route-delay",
+        "route-red-sea-suez",
+        "route-cape-reroute"
+      ]
+    },
+    {
+      "id": "ev-freight-risk",
+      "sourceId": "src-curated-market-brief",
+      "claim": "Higher maritime risk can add a short-term geopolitical and freight premium to oil benchmarks.",
+      "excerpt": "When chokepoint risk rises, traders often price higher uncertainty into seaborne crude flows.",
+      "relevance": 0.86,
+      "supports": ["evt-bab-el-mandeb-risk", "region-red-sea-risk-zone", "ind-freight-risk-premium"]
+    },
+    {
+      "id": "ev-dollar-counter-signal",
+      "sourceId": "src-curated-macro-brief",
+      "claim": "A stronger U.S. dollar can offset bullish oil-specific signals.",
+      "excerpt": "Dollar strength is a counter-signal because oil is denominated in dollars and can become more expensive for non-U.S. buyers.",
+      "relevance": 0.7,
+      "supports": ["evt-us-dollar-pressure", "cs-dollar-strength"],
+      "contradicts": ["evt-bab-el-mandeb-risk"]
+    },
+    {
+      "id": "ev-us-crude-europe-flow",
+      "sourceId": "src-eia-us-crude-exports-2024",
+      "claim": "Europe is a major destination for U.S. crude oil exports, making U.S. Gulf to Europe flows relevant to Atlantic Basin crude balances.",
+      "excerpt": "EIA reported U.S. crude oil exports to Europe increased in 2024 and Europe remained a top regional destination.",
+      "relevance": 0.84,
+      "supports": ["route-us-gulf-europe"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-curated-shipping-brief",
+      "title": "Curated shipping disruption brief",
+      "organization": "MacroSignal Demo Desk",
+      "url": null,
+      "publishedAt": "2024-01-19"
+    },
+    {
+      "id": "src-curated-market-brief",
+      "title": "Curated oil market impact brief",
+      "organization": "MacroSignal Demo Desk",
+      "url": null,
+      "publishedAt": "2024-01-19"
+    },
+    {
+      "id": "src-curated-macro-brief",
+      "title": "Curated macro counter-signal brief",
+      "organization": "MacroSignal Demo Desk",
+      "url": null,
+      "publishedAt": "2024-01-19"
+    },
+    {
+      "id": "src-eia-us-crude-exports-2024",
+      "title": "U.S. crude oil exports reached a new record in 2024",
+      "organization": "U.S. Energy Information Administration",
+      "url": "https://www.eia.gov/todayinenergy/detail.php?id=64964",
+      "publishedAt": "2025-04-08"
+    }
+  ],
+  "counterSignals": [
+    {
+      "id": "cs-dollar-strength",
+      "title": "Dollar strength",
+      "description": "A firm U.S. dollar may reduce the scale of oil-price upside from shipping risk.",
+      "impactDirection": "bearish",
+      "evidenceIds": ["ev-dollar-counter-signal"]
+    }
+  ],
+  "watchIndicators": [
+    {
+      "id": "watch-tanker-rerouting",
+      "title": "Tanker rerouting share",
+      "description": "Monitor the share of crude and product tankers avoiding the Red Sea corridor."
+    },
+    {
+      "id": "watch-war-risk-premium",
+      "title": "War-risk insurance premium",
+      "description": "Rising insurance costs would support the shipping-risk channel."
+    },
+    {
+      "id": "watch-dollar-index",
+      "title": "U.S. dollar index",
+      "description": "Further dollar strength could blunt bullish oil-specific signals."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scenario-shipping-risk-elevated",
+      "title": "Elevated shipping risk persists",
+      "assumptions": {
+        "opecPolicy": "cuts_hold",
+        "shippingRisk": "elevated",
+        "chinaDemand": "stable",
+        "fedUsd": "neutral",
+        "inventories": "neutral",
+        "transitionPressure": "baseline",
+        "horizon": "2_6_weeks",
+        "userQuestion": "What if Red Sea shipping risk stays elevated?"
+      },
+      "historicalAnalogues": [
+        "Prior chokepoint-risk episodes where route reliability became a short-term oil-market premium."
+      ],
+      "invalidatingSignals": [
+        "Material de-escalation in Red Sea security risk",
+        "Rapid normalization of tanker routes through Bab el-Mandeb",
+        "Large inventory builds that outweigh shipping-risk premium"
+      ]
+    }
+  ]
+}

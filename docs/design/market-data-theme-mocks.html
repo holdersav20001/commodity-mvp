@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MacroSignal Market Data Theme Mocks</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #eef2f0;
+        color: #17211f;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
+
+      main {
+        display: grid;
+        gap: 24px;
+        min-height: 100vh;
+        padding: 28px;
+      }
+
+      .mock-header {
+        max-width: 1100px;
+      }
+
+      .mock-header h1,
+      .mock-header p {
+        margin: 0;
+      }
+
+      .mock-header h1 {
+        font-size: 1.45rem;
+      }
+
+      .mock-header p {
+        margin-top: 6px;
+        color: #5d6d69;
+      }
+
+      .mock-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .mock {
+        display: grid;
+        gap: 16px;
+        min-height: 740px;
+        padding: 18px;
+        border-radius: 12px;
+        box-shadow: 0 24px 70px rgba(25, 35, 34, 0.16);
+      }
+
+      .theme-title {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .theme-title h2,
+      .theme-title p {
+        margin: 0;
+      }
+
+      .theme-title h2 {
+        font-size: 1rem;
+      }
+
+      .theme-title p {
+        margin-top: 4px;
+        font-size: 0.78rem;
+      }
+
+      .tag {
+        flex: none;
+        padding: 5px 8px;
+        border-radius: 999px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .tabs,
+      .card-grid,
+      .trend-grid,
+      .metric-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .tabs {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 34px;
+        border-radius: 8px;
+        font-size: 0.76rem;
+        font-weight: 700;
+      }
+
+      .section {
+        display: grid;
+        gap: 12px;
+      }
+
+      .section-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      .section-heading h3,
+      .section-heading p {
+        margin: 0;
+      }
+
+      .section-heading h3 {
+        font-size: 0.86rem;
+      }
+
+      .section-heading p {
+        font-size: 0.72rem;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card {
+        display: grid;
+        gap: 8px;
+        min-height: 145px;
+        padding: 12px;
+        border-radius: 9px;
+      }
+
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .card-top span,
+      .card small,
+      .metric span,
+      .trend-card span {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .card strong {
+        font-size: 1.38rem;
+      }
+
+      .card p {
+        margin: 0;
+        font-size: 0.74rem;
+        line-height: 1.4;
+      }
+
+      .pill {
+        padding: 4px 7px;
+        border-radius: 999px;
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: capitalize;
+      }
+
+      .trend-mini {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .trend-mini span {
+        padding: 4px 7px;
+        border-radius: 999px;
+        font-size: 0.68rem;
+      }
+
+      .trend-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .trend-card {
+        display: grid;
+        gap: 8px;
+        padding: 10px;
+        border-radius: 9px;
+      }
+
+      .metric-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .metric {
+        display: grid;
+        gap: 4px;
+        padding: 8px;
+        border-radius: 7px;
+      }
+
+      .metric strong {
+        font-size: 0.86rem;
+      }
+
+      .mock.light {
+        background: #f9fbf8;
+        border: 1px solid #d7e0dc;
+      }
+
+      .light .theme-title p,
+      .light .section-heading p,
+      .light .card p,
+      .light .card small,
+      .light .metric span,
+      .light .trend-card span,
+      .light .card-top span {
+        color: #60716c;
+      }
+
+      .light .tag {
+        color: #14543e;
+        background: #d9f2e6;
+      }
+
+      .light .tab {
+        color: #36514b;
+        background: #edf3f0;
+        border: 1px solid #d8e2de;
+      }
+
+      .light .tab.active {
+        color: #ffffff;
+        background: #226a55;
+        border-color: #226a55;
+      }
+
+      .light .card,
+      .light .trend-card {
+        background: #ffffff;
+        border: 1px solid #d7e0dc;
+        box-shadow: 0 10px 24px rgba(34, 60, 52, 0.08);
+      }
+
+      .light .metric,
+      .light .trend-mini span {
+        background: #eff5f2;
+      }
+
+      .light .pill.bullish {
+        color: #11633f;
+        background: #d9f2e6;
+      }
+
+      .light .pill.bearish {
+        color: #8a241e;
+        background: #ffe2dd;
+      }
+
+      .mock.contrast {
+        color: #f3f7f4;
+        background: #161c1b;
+        border: 1px solid #596964;
+      }
+
+      .contrast .theme-title p,
+      .contrast .section-heading p,
+      .contrast .card p,
+      .contrast .card small,
+      .contrast .metric span,
+      .contrast .trend-card span,
+      .contrast .card-top span {
+        color: #b7c7c2;
+      }
+
+      .contrast .tag {
+        color: #101615;
+        background: #ffd166;
+      }
+
+      .contrast .tab {
+        color: #d7e4df;
+        background: #232d2b;
+        border: 1px solid #52635e;
+      }
+
+      .contrast .tab.active {
+        color: #101615;
+        background: #9ce6c6;
+        border-color: #9ce6c6;
+      }
+
+      .contrast .card,
+      .contrast .trend-card {
+        background: #202a28;
+        border: 1px solid #6a7c76;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .contrast .metric,
+      .contrast .trend-mini span {
+        background: #2b3734;
+        border: 1px solid #4f5f5b;
+      }
+
+      .contrast .pill.bullish {
+        color: #101615;
+        background: #9ce6c6;
+      }
+
+      .contrast .pill.bearish {
+        color: #101615;
+        background: #ff9b8a;
+      }
+
+      @media (max-width: 1100px) {
+        .mock-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="mock-header">
+        <h1>Market Data Theme Mocks</h1>
+        <p>Two candidate treatments for making the live EIA/CFTC cards easier to scan.</p>
+      </header>
+
+      <section class="mock-grid">
+        <article class="mock light">
+          <div class="theme-title">
+            <div>
+              <h2>Option A - Light Operations</h2>
+              <p>Bright, analytical, spreadsheet-adjacent. Best readability.</p>
+            </div>
+            <span class="tag">Recommended</span>
+          </div>
+          <div class="tabs">
+            <div class="tab">Memo</div>
+            <div class="tab active">Market Data</div>
+            <div class="tab">Scenario</div>
+            <div class="tab">Chat</div>
+          </div>
+          <div class="section">
+            <div class="section-heading">
+              <div>
+                <h3>EIA Physical Balances</h3>
+                <p>Inventories, flows, production, and refinery demand.</p>
+              </div>
+              <p>12,628 observations stored</p>
+            </div>
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-top"><span>Inventories</span><b class="pill bullish">Bullish</b></div>
+                <strong>452,876</strong>
+                <small>thousand barrels - 2026-05-08</small>
+                <div class="trend-mini"><span>Falling</span><span>Z 1.05</span><span>Pct 81%</span></div>
+                <p>Commercial crude inventories fell by 4,306 thousand barrels.</p>
+              </div>
+              <div class="card">
+                <div class="card-top"><span>Imports</span><b class="pill bearish">Bearish</b></div>
+                <strong>5,901</strong>
+                <small>thousand barrels per day - 2026-05-08</small>
+                <div class="trend-mini"><span>Rising</span><span>Z -0.94</span><span>Pct 16%</span></div>
+                <p>Imports rose by 424 thousand barrels per day.</p>
+              </div>
+              <div class="card">
+                <div class="card-top"><span>Exports</span><b class="pill bullish">Bullish</b></div>
+                <strong>5,492</strong>
+                <small>thousand barrels per day - 2026-05-08</small>
+                <div class="trend-mini"><span>Rising</span><span>Z 2.00</span><span>Pct 99%</span></div>
+                <p>Exports rose by 742 thousand barrels per day.</p>
+              </div>
+              <div class="card">
+                <div class="card-top"><span>Refinery runs</span><b class="pill bullish">Bullish</b></div>
+                <strong>16,399</strong>
+                <small>thousand barrels per day - 2026-05-08</small>
+                <div class="trend-mini"><span>Rising</span><span>Z 0.60</span><span>Pct 69%</span></div>
+                <p>Refinery inputs rose by 370 thousand barrels per day.</p>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="section-heading">
+              <div>
+                <h3>Stored History and ML Features</h3>
+                <p>Trend vectors ready for model training.</p>
+              </div>
+            </div>
+            <div class="trend-grid">
+              <div class="trend-card"><span>inventories</span><strong>falling</strong><div class="metric-grid"><div class="metric"><span>Weekly</span><strong>-4,306</strong></div><div class="metric"><span>4-period</span><strong>-10,928</strong></div></div></div>
+              <div class="trend-card"><span>exports</span><strong>rising</strong><div class="metric-grid"><div class="metric"><span>Z-score</span><strong>2.00</strong></div><div class="metric"><span>Percentile</span><strong>99%</strong></div></div></div>
+              <div class="trend-card"><span>managed money net</span><strong>falling</strong><div class="metric-grid"><div class="metric"><span>Weekly</span><strong>+2,010</strong></div><div class="metric"><span>Z-score</span><strong>-1.00</strong></div></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="mock contrast">
+          <div class="theme-title">
+            <div>
+              <h2>Option B - High-Contrast Dark</h2>
+              <p>Keeps the current dark feel, but lifts surfaces, borders, and labels.</p>
+            </div>
+            <span class="tag">Closer</span>
+          </div>
+          <div class="tabs">
+            <div class="tab">Memo</div>
+            <div class="tab active">Market Data</div>
+            <div class="tab">Scenario</div>
+            <div class="tab">Chat</div>
+          </div>
+          <div class="section">
+            <div class="section-heading">
+              <div>
+                <h3>EIA Physical Balances</h3>
+                <p>Inventories, flows, production, and refinery demand.</p>
+              </div>
+              <p>12,628 observations stored</p>
+            </div>
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-top"><span>Inventories</span><b class="pill bullish">Bullish</b></div>
+                <strong>452,876</strong>
+                <small>thousand barrels - 2026-05-08</small>
+                <div class="trend-mini"><span>Falling</span><span>Z 1.05</span><span>Pct 81%</span></div>
+                <p>Commercial crude inventories fell by 4,306 thousand barrels.</p>
+              </div>
+              <div class="card">
+                <div class="card-top"><span>Imports</span><b class="pill bearish">Bearish</b></div>
+                <strong>5,901</strong>
+                <small>thousand barrels per day - 2026-05-08</small>
+                <div class="trend-mini"><span>Rising</span><span>Z -0.94</span><span>Pct 16%</span></div>
+                <p>Imports rose by 424 thousand barrels per day.</p>
+              </div>
+              <div class="card">
+                <div class="card-top"><span>Exports</span><b class="pill bullish">Bullish</b></div>
+                <strong>5,492</strong>
+                <small>thousand barrels per day - 2026-05-08</small>
+                <div class="trend-mini"><span>Rising</span><span>Z 2.00</span><span>Pct 99%</span></div>
+                <p>Exports rose by 742 thousand barrels per day.</p>
+              </div>
+              <div class="card">
+                <div class="card-top"><span>Refinery runs</span><b class="pill bullish">Bullish</b></div>
+                <strong>16,399</strong>
+                <small>thousand barrels per day - 2026-05-08</small>
+                <div class="trend-mini"><span>Rising</span><span>Z 0.60</span><span>Pct 69%</span></div>
+                <p>Refinery inputs rose by 370 thousand barrels per day.</p>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="section-heading">
+              <div>
+                <h3>Stored History and ML Features</h3>
+                <p>Trend vectors ready for model training.</p>
+              </div>
+            </div>
+            <div class="trend-grid">
+              <div class="trend-card"><span>inventories</span><strong>falling</strong><div class="metric-grid"><div class="metric"><span>Weekly</span><strong>-4,306</strong></div><div class="metric"><span>4-period</span><strong>-10,928</strong></div></div></div>
+              <div class="trend-card"><span>exports</span><strong>rising</strong><div class="metric-grid"><div class="metric"><span>Z-score</span><strong>2.00</strong></div><div class="metric"><span>Percentile</span><strong>99%</strong></div></div></div>
+              <div class="trend-card"><span>managed money net</span><strong>falling</strong><div class="metric-grid"><div class="metric"><span>Weekly</span><strong>+2,010</strong></div><div class="metric"><span>Z-score</span><strong>-1.00</strong></div></div></div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
