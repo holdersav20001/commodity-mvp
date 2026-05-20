@@ -33,6 +33,13 @@ e2e/       Playwright smoke tests
 docs/      Product, architecture, design, and planning artifacts
 ```
 
+## Visual Evidence
+
+- [Visual evidence pack](docs/VISUAL-EVIDENCE-PACK.md)
+- [Draw.io dataflow diagrams](docs/diagrams/macrosignal-dataflows.drawio)
+- [Map overview screenshot](docs/screenshots/01-map-overview.png)
+- [Market data screenshot](docs/screenshots/03-market-data-light-theme.png)
+
 ## Requirements
 
 - Python 3.12+

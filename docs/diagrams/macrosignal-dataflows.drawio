@@ -1,0 +1,107 @@
+<mxfile host="app.diagrams.net" modified="2026-05-20T00:00:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="source-to-insight" name="Source To Insight Dataflow">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title1" value="MacroSignal Oil: Source To Insight Dataflow" style="text;html=1;strokeColor=none;fillColor=none;fontSize=24;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="720" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" value="EIA weekly petroleum&lt;br&gt;inventories, imports, exports,&lt;br&gt;production, refinery runs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eaf4ee;strokeColor=#4c8f67;fontColor=#1d3327;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" value="CFTC CoT futures&lt;br&gt;managed money net,&lt;br&gt;open interest" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#edf3ff;strokeColor=#547fbf;fontColor=#22324c;" vertex="1" parent="1">
+          <mxGeometry x="40" y="230" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" value="Shipping and geopolitics&lt;br&gt;Red Sea, Suez, Cape reroute,&lt;br&gt;origin/destination routes" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fff2e4;strokeColor=#c57a2c;fontColor=#4a2b10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" value="Macro news sources&lt;br&gt;central banks, OPEC,&lt;br&gt;economic growth and demand" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5efff;strokeColor=#8060b4;fontColor=#332347;" vertex="1" parent="1">
+          <mxGeometry x="40" y="470" width="210" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ingest" value="Backend ingestion adapters&lt;br&gt;official API first, public fallback,&lt;br&gt;source metadata captured" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ffffff;strokeColor=#4b5563;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="330" y="265" width="230" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="schemas" value="Normalized schemas&lt;br&gt;case study, evidence item,&lt;br&gt;market observation, route layer" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ffffff;strokeColor=#4b5563;fontColor=#111827;" vertex="1" parent="1">
+          <mxGeometry x="640" y="265" width="230" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="history" value="SQLite history store&lt;br&gt;raw observations + refresh dates&lt;br&gt;ML-ready historical base" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#0f172a;" vertex="1" parent="1">
+          <mxGeometry x="950" y="160" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="features" value="Feature builder&lt;br&gt;weekly change, 4-week change,&lt;br&gt;z-score, percentile, trend" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#0f172a;" vertex="1" parent="1">
+          <mxGeometry x="950" y="320" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="gate" value="Evidence gate&lt;br&gt;allowed, blocked, contradicted&lt;br&gt;claim status before LLM output" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fff7ed;strokeColor=#d97706;fontColor=#431407;" vertex="1" parent="1">
+          <mxGeometry x="950" y="480" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" value="React intelligence workspace&lt;br&gt;map, market data, scenario forecast,&lt;br&gt;evidence-gated analyst memo" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ecfeff;strokeColor=#0891b2;fontColor=#164e63;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="315" width="230" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="s1" target="ingest"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="s2" target="ingest"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="s3" target="ingest"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="s4" target="ingest"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="ingest" target="schemas"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="schemas" target="history"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="history" target="features"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="schemas" target="gate"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="features" target="ui"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="gate" target="ui"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="evidence-gated-llm" name="Evidence-Gated LLM Workflow">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title2" value="Evidence-Gated LLM Workflow" style="text;html=1;strokeColor=none;fillColor=none;fontSize=24;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="600" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="case" value="Analyst question or case&lt;br&gt;Example: why did oil move?" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eef2ff;strokeColor=#4f46e5;fontColor=#1e1b4b;" vertex="1" parent="1"><mxGeometry x="60" y="160" width="210" height="80" as="geometry" /></mxCell>
+        <mxCell id="retrieve" value="Retrieve evidence&lt;br&gt;case data, market observations,&lt;br&gt;route context, source metadata" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ffffff;strokeColor=#475569;fontColor=#0f172a;" vertex="1" parent="1"><mxGeometry x="330" y="150" width="230" height="100" as="geometry" /></mxCell>
+        <mxCell id="bundle" value="Evidence bundle&lt;br&gt;claims get source IDs,&lt;br&gt;dates, confidence, direction" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#0f172a;" vertex="1" parent="1"><mxGeometry x="620" y="150" width="230" height="100" as="geometry" /></mxCell>
+        <mxCell id="claim" value="Claim gate&lt;br&gt;allowed when supported&lt;br&gt;blocked when missing support&lt;br&gt;contradicted when evidence conflicts" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff7ed;strokeColor=#d97706;fontColor=#431407;" vertex="1" parent="1"><mxGeometry x="930" y="120" width="160" height="160" as="geometry" /></mxCell>
+        <mxCell id="llm" value="LLM memo generation&lt;br&gt;only allowed claims enter prompt&lt;br&gt;citations and caveats required" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ecfeff;strokeColor=#0891b2;fontColor=#164e63;" vertex="1" parent="1"><mxGeometry x="1160" y="150" width="230" height="100" as="geometry" /></mxCell>
+        <mxCell id="blocked" value="Blocked claim log&lt;br&gt;visible reviewer evidence&lt;br&gt;used for data/source backlog" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#450a0a;" vertex="1" parent="1"><mxGeometry x="930" y="390" width="230" height="100" as="geometry" /></mxCell>
+        <mxCell id="verify" value="Post-generation verifier&lt;br&gt;checks claims still cite evidence&lt;br&gt;flags unsupported wording" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5f3ff;strokeColor=#7c3aed;fontColor=#2e1065;" vertex="1" parent="1"><mxGeometry x="1160" y="390" width="230" height="100" as="geometry" /></mxCell>
+        <mxCell id="memo" value="Analyst Memo tab&lt;br&gt;drivers, evidence notes,&lt;br&gt;known gaps and confidence" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f0fdf4;strokeColor=#16a34a;fontColor=#052e16;" vertex="1" parent="1"><mxGeometry x="1160" y="590" width="230" height="100" as="geometry" /></mxCell>
+        <mxCell id="g1" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="case" target="retrieve"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g2" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="retrieve" target="bundle"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g3" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="bundle" target="claim"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g4" value="allowed" style="endArrow=block;html=1;rounded=0;strokeColor=#16a34a;fontColor=#166534;" edge="1" parent="1" source="claim" target="llm"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g5" value="blocked or contradicted" style="endArrow=block;html=1;rounded=0;strokeColor=#dc2626;fontColor=#991b1b;" edge="1" parent="1" source="claim" target="blocked"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g6" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="llm" target="verify"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g7" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="verify" target="memo"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g8" style="endArrow=block;html=1;rounded=0;strokeColor=#6b7280;dashed=1;" edge="1" parent="1" source="blocked" target="memo"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="historical-ml" name="Historical ML Pipeline">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title3" value="Historical Data And ML Forecast Pipeline" style="text;html=1;strokeColor=none;fillColor=none;fontSize=24;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="40" y="30" width="700" height="40" as="geometry" /></mxCell>
+        <mxCell id="b1" value="Historical backfill&lt;br&gt;EIA since 1980s/1990s&lt;br&gt;CFTC since 2006" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#eaf4ee;strokeColor=#4c8f67;fontColor=#1d3327;" vertex="1" parent="1"><mxGeometry x="60" y="160" width="220" height="90" as="geometry" /></mxCell>
+        <mxCell id="b2" value="Live refresh&lt;br&gt;weekly EIA and CFTC pull&lt;br&gt;observed date tracked" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#edf3ff;strokeColor=#547fbf;fontColor=#22324c;" vertex="1" parent="1"><mxGeometry x="60" y="310" width="220" height="90" as="geometry" /></mxCell>
+        <mxCell id="store" value="Market history repository&lt;br&gt;SQLite now, migratable to Postgres&lt;br&gt;series/date unique keys" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ffffff;strokeColor=#475569;fontColor=#0f172a;" vertex="1" parent="1"><mxGeometry x="370" y="230" width="250" height="110" as="geometry" /></mxCell>
+        <mxCell id="join" value="Training dataset builder&lt;br&gt;join fundamentals, positioning,&lt;br&gt;routes, events, and price history" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f8fafc;strokeColor=#64748b;fontColor=#0f172a;" vertex="1" parent="1"><mxGeometry x="710" y="230" width="250" height="110" as="geometry" /></mxCell>
+        <mxCell id="split" value="Time-aware validation&lt;br&gt;walk-forward split&lt;br&gt;no future leakage" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fff7ed;strokeColor=#d97706;fontColor=#431407;" vertex="1" parent="1"><mxGeometry x="1040" y="120" width="230" height="90" as="geometry" /></mxCell>
+        <mxCell id="model" value="Baseline forecast models&lt;br&gt;direction classifier and return model&lt;br&gt;calibrated confidence" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f5f3ff;strokeColor=#7c3aed;fontColor=#2e1065;" vertex="1" parent="1"><mxGeometry x="1040" y="270" width="230" height="100" as="geometry" /></mxCell>
+        <mxCell id="eval" value="Evaluation report&lt;br&gt;accuracy, MAE, hit rate,&lt;br&gt;regime and stress-period checks" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#fef2f2;strokeColor=#dc2626;fontColor=#450a0a;" vertex="1" parent="1"><mxGeometry x="1040" y="430" width="230" height="100" as="geometry" /></mxCell>
+        <mxCell id="api" value="Prediction API&lt;br&gt;scenario inputs + model outputs&lt;br&gt;evidence and confidence attached" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#ecfeff;strokeColor=#0891b2;fontColor=#164e63;" vertex="1" parent="1"><mxGeometry x="710" y="520" width="250" height="100" as="geometry" /></mxCell>
+        <mxCell id="front" value="Scenario forecast UI&lt;br&gt;baseline, option cases,&lt;br&gt;driver impact bands" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#f0fdf4;strokeColor=#16a34a;fontColor=#052e16;" vertex="1" parent="1"><mxGeometry x="370" y="520" width="250" height="100" as="geometry" /></mxCell>
+        <mxCell id="m1" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="b1" target="store"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m2" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="b2" target="store"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m3" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="store" target="join"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m4" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="join" target="split"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m5" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="split" target="model"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m6" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="model" target="eval"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m7" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="model" target="api"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m8" style="endArrow=block;html=1;rounded=0;strokeColor=#374151;" edge="1" parent="1" source="api" target="front"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m9" value="feedback loop" style="endArrow=block;html=1;rounded=0;strokeColor=#6b7280;dashed=1;fontColor=#4b5563;" edge="1" parent="1" source="eval" target="join"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
