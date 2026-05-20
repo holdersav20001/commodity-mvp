@@ -22,6 +22,16 @@ The file contains three pages:
 - `Evidence-Gated LLM Workflow`: where claims are allowed, blocked, or contradicted before and after LLM memo generation.
 - `Historical ML Pipeline`: how stored history becomes a training dataset, model evaluation loop, prediction API, and scenario forecast UI.
 
+Rendered previews are also included for GitHub review:
+
+| Diagram | PNG | SVG |
+| --- | --- | --- |
+| Source to insight dataflow | [PNG](diagrams/rendered/source-to-insight-dataflow.png) | [SVG](diagrams/rendered/source-to-insight-dataflow.svg) |
+| Evidence-gated LLM workflow | [PNG](diagrams/rendered/evidence-gated-llm-workflow.png) | [SVG](diagrams/rendered/evidence-gated-llm-workflow.svg) |
+| Historical ML pipeline | [PNG](diagrams/rendered/historical-ml-pipeline.png) | [SVG](diagrams/rendered/historical-ml-pipeline.svg) |
+
+Note: the editable `.drawio` source is the canonical diagram file. The rendered previews are committed so reviewers can inspect the diagrams without installing draw.io.
+
 ## Refreshing Screenshots
 
 Start the backend and frontend, then capture screenshots with Playwright from the `e2e/` package:

@@ -37,6 +37,9 @@ docs/      Product, architecture, design, and planning artifacts
 
 - [Visual evidence pack](docs/VISUAL-EVIDENCE-PACK.md)
 - [Draw.io dataflow diagrams](docs/diagrams/macrosignal-dataflows.drawio)
+- [Rendered source-to-insight dataflow](docs/diagrams/rendered/source-to-insight-dataflow.png)
+- [Rendered evidence-gated LLM workflow](docs/diagrams/rendered/evidence-gated-llm-workflow.png)
+- [Rendered historical ML pipeline](docs/diagrams/rendered/historical-ml-pipeline.png)
 - [Map overview screenshot](docs/screenshots/01-map-overview.png)
 - [Market data screenshot](docs/screenshots/03-market-data-light-theme.png)
 
